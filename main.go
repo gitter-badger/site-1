@@ -8,7 +8,6 @@ import (
 	"html/template"
 	"os"
 	"path"
-	"sync"
 	"time"
 )
 
@@ -24,7 +23,6 @@ type SocialLinks []SocialLink
 type Config struct {
 	FileName string
 	ModTime  time.Time
-	Lock     sync.RWMutex
 	Data     SocialLinks
 	Debug    bool
 }
@@ -91,7 +89,7 @@ func (c *Config) Log(msg string) {
 }
 
 func main() {
-	config := Config{"links.json", time.Time{}, sync.RWMutex{}, nil, true}
+	config := Config{"links.json", time.Time{}, nil, true}
 
 	m := martini.Classic()
 
