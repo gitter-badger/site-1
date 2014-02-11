@@ -112,5 +112,9 @@ func main() {
 		r.HTML(200, "index", links)
 	})
 
+	m.NotFound(func(r render.Render) {
+		r.HTML(200, "not_found", nil)
+	})
+
 	m.Run()
 }
