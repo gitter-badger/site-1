@@ -9,6 +9,7 @@ import (
 	"os"
 	"path"
 	"time"
+  "net/http"
 )
 
 type SocialLink struct {
@@ -111,6 +112,10 @@ func main() {
 
 		r.HTML(200, "index", links)
 	})
+
+  m.Get("/cs-logica", func(res http.ResponseWriter, req *http.Request){
+    http.Redirect(res, req, "http://code-squad.com/curso/logica-programacao/avulso", 301)
+  })
 
 	m.NotFound(func(r render.Render) {
 		r.HTML(200, "not_found", nil)
