@@ -113,8 +113,16 @@ func main() {
 		r.HTML(200, "index", links)
 	})
 
-  m.Get("/cs-logica", func(res http.ResponseWriter, req *http.Request){
-    http.Redirect(res, req, "http://code-squad.com/curso/logica-programacao/avulso", 301)
+  m.Get("/cs-logica", func(res http.ResponseWriter, req *http.Request) {
+    http.Redirect(res, req, "http://code-squad.com/curso/logica-programacao/avulso", 302)
+  })
+
+  m.Get("/sn-php", func(res http.ResponseWriter, req *http.Request) {
+    http.Redirect(res, req, "http://www.schoolofnet.com/cursos/php-basico/", 302)
+  })
+
+  m.Get("/pti-50-gratis", func(res http.ResponseWriter, req *http.Request) {
+    http.Redirect(res, req, "http://www.profissionaisti.com.br/2013/03/os-50-melhores-cursos-gratis-de-ti-de-toda-a-internet/", 302)
   })
 
 	m.NotFound(func(r render.Render) {
