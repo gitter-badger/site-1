@@ -125,6 +125,14 @@ func main() {
     http.Redirect(res, req, "http://www.profissionaisti.com.br/2013/03/os-50-melhores-cursos-gratis-de-ti-de-toda-a-internet/", 302)
   })
 
+  m.Get("/rls-java-gratis", func(res http.ResponseWriter, req *http.Request) {
+    http.Redirect(res, req, "http://www.rlsystem.com.br/curso-java-gratis/", 302)
+  })
+
+  m.Get("/rls-android-gratis", func(res http.ResponseWriter, req *http.Request) {
+    http.Redirect(res, req, "http://www.rlsystem.com.br/curso-android-gratis/", 302)
+  })
+
 	m.NotFound(func(r render.Render) {
 		r.HTML(200, "not_found", nil)
 	})
