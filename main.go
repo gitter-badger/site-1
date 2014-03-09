@@ -6,10 +6,10 @@ import (
 	"github.com/codegangsta/martini"
 	"github.com/codegangsta/martini-contrib/render"
 	"html/template"
+	"net/http"
 	"os"
 	"path"
 	"time"
-  "net/http"
 )
 
 type SocialLink struct {
@@ -91,6 +91,7 @@ func (c *Config) Log(msg string) {
 
 func main() {
 	config := Config{"links.json", time.Time{}, nil, true}
+	targetDate, _ := time.Parse("2006-01-02 15:04:05", "2014-05-03 20:00:00")
 
 	m := martini.Classic()
 
@@ -110,28 +111,34 @@ func main() {
 			}
 		}
 
-		r.HTML(200, "index", links)
+		now := time.Now().Add(-(3 * time.Hour))
+		daysLeft := int(targetDate.Sub(now).Hours() / 24)
+		if (daysLeft < 0) {
+			daysLeft = 0
+		}
+
+		r.HTML(200, "index", map[string]interface{}{"links": links, "daysLeft": daysLeft})
 	})
 
-  m.Get("/cs-logica", func(res http.ResponseWriter, req *http.Request) {
-    http.Redirect(res, req, "http://code-squad.com/curso/logica-programacao/avulso", 302)
-  })
+	m.Get("/cs-logica", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "http://code-squad.com/curso/logica-programacao/avulso", 302)
+	})
 
-  m.Get("/sn-php", func(res http.ResponseWriter, req *http.Request) {
-    http.Redirect(res, req, "http://www.schoolofnet.com/cursos/php-basico/", 302)
-  })
+	m.Get("/sn-php", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "http://www.schoolofnet.com/cursos/php-basico/", 302)
+	})
 
-  m.Get("/pti-50-gratis", func(res http.ResponseWriter, req *http.Request) {
-    http.Redirect(res, req, "http://www.profissionaisti.com.br/2013/03/os-50-melhores-cursos-gratis-de-ti-de-toda-a-internet/", 302)
-  })
+	m.Get("/pti-50-gratis", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "http://www.profissionaisti.com.br/2013/03/os-50-melhores-cursos-gratis-de-ti-de-toda-a-internet/", 302)
+	})
 
-  m.Get("/rls-java-gratis", func(res http.ResponseWriter, req *http.Request) {
-    http.Redirect(res, req, "http://www.rlsystem.com.br/curso-java-gratis/", 302)
-  })
+	m.Get("/rls-java-gratis", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "http://www.rlsystem.com.br/curso-java-gratis/", 302)
+	})
 
-  m.Get("/rls-android-gratis", func(res http.ResponseWriter, req *http.Request) {
-    http.Redirect(res, req, "http://www.rlsystem.com.br/curso-android-gratis/", 302)
-  })
+	m.Get("/rls-android-gratis", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "http://www.rlsystem.com.br/curso-android-gratis/", 302)
+	})
 
 	m.NotFound(func(r render.Render) {
 		r.HTML(200, "not_found", nil)
