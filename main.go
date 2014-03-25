@@ -140,6 +140,10 @@ func main() {
 		http.Redirect(res, req, "http://www.rlsystem.com.br/curso-android-gratis/", 302)
 	})
 
+	m.Get("/php-velha", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "https://dl.dropboxusercontent.com/u/1274888/php-velha-v0.zip", 302)
+	})
+
 	m.NotFound(func(r render.Render) {
 		r.HTML(200, "not_found", nil)
 	})
