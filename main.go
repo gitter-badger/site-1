@@ -113,7 +113,7 @@ func main() {
 
 		now := time.Now().Add(-(3 * time.Hour))
 		daysLeft := int(targetDate.Sub(now).Hours() / 24)
-		if (daysLeft < 0) {
+		if daysLeft < 0 {
 			daysLeft = 0
 		}
 
@@ -142,6 +142,14 @@ func main() {
 
 	m.Get("/php-velha", func(res http.ResponseWriter, req *http.Request) {
 		http.Redirect(res, req, "https://dl.dropboxusercontent.com/u/1274888/php-velha-v0.zip", 302)
+	})
+
+	m.Get("/nitrous", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "https://www.nitrous.io/join/OmmkMOJ76D8", 302)
+	})
+
+	m.Get("/nitrous-mylab", func(res http.ResponseWriter, req *http.Request) {
+		http.Redirect(res, req, "http://mylab-78548.sae1.nitrousbox.com", 302)
 	})
 
 	m.NotFound(func(r render.Render) {
