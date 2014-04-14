@@ -2,7 +2,6 @@ package links
 
 import (
 	"encoding/json"
-	"fmt"
 	mdc "github.com/txgruppi/modtimechecker"
 	"html/template"
 	"os"
@@ -36,7 +35,6 @@ func New(path string) *Links {
 		defer file.Close()
 
 		dec := json.NewDecoder(file)
-		fmt.Printf("%#v\n", dec.Decode(&links.links))
 	})
 
 	return &links
