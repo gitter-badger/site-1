@@ -2,8 +2,8 @@ package main
 
 import (
 	"errors"
-	"github.com/codegangsta/martini"
-	"github.com/codegangsta/martini-contrib/render"
+	"github.com/go-martini/martini"
+	"github.com/martini-contrib/render"
 	"github.com/txgruppi/site/links"
 	"github.com/txgruppi/site/urlshortener"
 	"html/template"
