@@ -35,6 +35,7 @@ func New(path string) *Links {
 		defer file.Close()
 
 		dec := json.NewDecoder(file)
+		dec.Decode(&links.links)
 	})
 
 	return &links
