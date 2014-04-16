@@ -33,7 +33,7 @@ func (us *UrlShortener) UrlFor(id string) (url string, err error) {
 
 	c := session.DB(us.dbName).C(us.collectionName)
 
-	url, err = us.findUrlBySlug(c, id)
+	url, err = us.findUrlByAlias(c, id)
 	if url == "" {
 		url, err = us.findUrlById(c, id)
 	}
@@ -56,9 +56,9 @@ func (us *UrlShortener) findUrlById(c *mgo.Collection, id string) (string, error
 	return result.Url, nil
 }
 
-func (us *UrlShortener) findUrlBySlug(c *mgo.Collection, slug string) (string, error) {
+func (us *UrlShortener) findUrlByAlias(c *mgo.Collection, alias string) (string, error) {
 	result := ShortenedUrl{}
-	err := c.Find(bson.M{"slugs": slug}).One(&result)
+	err := c.Find(bson.M{"aliases": alias}).One(&result)
 	if err != nil {
 		return "", err
 	}
