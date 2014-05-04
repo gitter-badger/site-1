@@ -1,27 +1,27 @@
 package urlshortener
 
 import (
+	"github.com/speps/go-hashids"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 	"os"
-	"github.com/speps/go-hashids"
 	"strings"
 )
 
 type ShortenedUrl struct {
-	Id int `bson:"_id"`
+	Id  int `bson:"_id"`
 	Url string
 }
 
 type UrlShortener struct {
-	mongoUrl string
-	dbName string
+	mongoUrl       string
+	dbName         string
 	collectionName string
-	hashid *hashids.HashID
+	hashid         *hashids.HashID
 }
 
 func (us *UrlShortener) UrlFor(id string) (url string, err error) {
-	defer func(){
+	defer func() {
 		recover()
 	}()
 
