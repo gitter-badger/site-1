@@ -1,5 +1,10 @@
 [
   {
+    "title": "E-mail",
+    "url": "mailto:txgruppi@gmail.com",
+    "image": "email-128.png"
+  },
+  {
     "title": "LinkedIn",
     "url": "http://lnkd.in/bwBshjx",
     "image": "linkedin-128.png"

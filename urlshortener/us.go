@@ -1,11 +1,12 @@
 package urlshortener
 
 import (
+	"os"
+	"strings"
+
 	"github.com/speps/go-hashids"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
-	"os"
-	"strings"
 )
 
 type ShortenedUrl struct {
