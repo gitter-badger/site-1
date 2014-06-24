@@ -1,9 +1,6 @@
 package urlshortener
 
 import (
-	"os"
-	"strings"
-
 	"github.com/speps/go-hashids"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
@@ -15,10 +12,8 @@ type ShortenedUrl struct {
 }
 
 type UrlShortener struct {
-	mongoUrl       string
-	dbName         string
-	collectionName string
-	hashid         *hashids.HashID
+	collection *mgo.Collection
+	hashid     *hashids.HashID
 }
 
 func (us *UrlShortener) UrlFor(id string) (url string, err error) {
@@ -26,17 +21,9 @@ func (us *UrlShortener) UrlFor(id string) (url string, err error) {
 		recover()
 	}()
 
-	session, err := mgo.Dial(us.mongoUrl)
-	if err != nil {
-		return "", err
-	}
-	defer session.Close()
-
-	c := session.DB(us.dbName).C(us.collectionName)
-
-	url, err = us.findUrlByAlias(c, id)
+	url, err = us.findUrlByAlias(us.collection, id)
 	if url == "" {
-		url, err = us.findUrlById(c, id)
+		url, err = us.findUrlById(us.collection, id)
 	}
 
 	return
@@ -67,17 +54,11 @@ func (us *UrlShortener) findUrlByAlias(c *mgo.Collection, alias string) (string,
 	return result.Url, nil
 }
 
-func New(collectionName string) *UrlShortener {
-	mongoUrl := os.Getenv("MONGO_URL")
-
-	if mongoUrl == "" {
-		return nil
-	}
-
+func New(collection *mgo.Collection) UrlShortener {
 	h := hashids.New()
 	h.Salt = "txgruppi" // It is not a secret
 
-	us := UrlShortener{mongoUrl, mongoUrl[strings.LastIndex(mongoUrl, "/")+1:], collectionName, h}
+	us := UrlShortener{collection, h}
 
-	return &us
+	return us
 }
