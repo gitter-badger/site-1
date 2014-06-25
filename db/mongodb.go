@@ -46,5 +46,5 @@ func (m *MongoDB) Database() (db *mgo.Database, err error) {
 }
 
 func (m *MongoDB) Url() string {
-	return m.url + "/" + m.databaseName
+	return m.url
 }

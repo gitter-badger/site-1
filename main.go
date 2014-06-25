@@ -8,8 +8,8 @@ import (
 	"github.com/txgruppi/site/db"
 	"github.com/txgruppi/site/links"
 	"github.com/txgruppi/site/urlshortener"
-	"os"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -53,7 +53,7 @@ func main() {
 		return bytes
 	})
 
-	m.Get("/:id", func(res http.ResponseWriter, req *http.Request, r render.Render, params martini.Params, us *urlshortener.UrlShortener){
+	m.Get("/:id", func(res http.ResponseWriter, req *http.Request, r render.Render, params martini.Params, us *urlshortener.UrlShortener) {
 		url, err := us.UrlFor(params["id"])
 		if err == nil && url != "" {
 			http.Redirect(res, req, url, 302)
