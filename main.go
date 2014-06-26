@@ -10,6 +10,7 @@ import (
 	"github.com/txgruppi/site/urlshortener"
 	"net/http"
 	"os"
+	"html/template"
 )
 
 func main() {
@@ -40,7 +41,7 @@ func main() {
 	}))
 
 	m.Get("/", func(r render.Render) {
-		r.HTML(200, "main", nil)
+		r.HTML(200, "main", map[string]interface{}{"env": template.HTML("<!-- " + martini.Env + " -->")})
 	})
 
 	m.Get("/api/links", func(l *links.LinksDAO) []byte {
