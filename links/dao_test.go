@@ -60,7 +60,7 @@ func connectToMongoDB() *mgo.Session {
 }
 
 func getTestDatabase(s *mgo.Session) *mgo.Database {
-	return s.DB("com_txgruppi_site_test")
+	return s.DB("txgruppicom_test")
 }
 
 func getTestCollection(d *mgo.Database) *mgo.Collection {
