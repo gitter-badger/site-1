@@ -54,6 +54,10 @@ func (us *UrlShortener) findUrlByAlias(c *mgo.Collection, alias string) (string,
 	return result.Url, nil
 }
 
+func (us *UrlShortener) HashIdFor(id int) (string, error) {
+	return us.hashid.Encrypt([]int{id})
+}
+
 func New(collection *mgo.Collection) UrlShortener {
 	h := hashids.New()
 	h.Salt = "txgruppi" // It is not a secret

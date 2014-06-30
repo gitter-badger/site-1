@@ -3,14 +3,16 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"html/template"
+	"net/http"
+	"os"
+	"strconv"
+
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/render"
 	"github.com/txgruppi/site/db"
 	"github.com/txgruppi/site/links"
 	"github.com/txgruppi/site/urlshortener"
-	"net/http"
-	"os"
-	"html/template"
 )
 
 func main() {
@@ -52,6 +54,17 @@ func main() {
 		panicIfErr(err)
 
 		return bytes
+	})
+
+	m.Get("/(?P<id>\\d+)/hashid", func(params martini.Params, us *urlshortener.UrlShortener) string {
+		id, err := strconv.Atoi(params["id"])
+		if err == nil {
+			hashid, err := us.HashIdFor(id)
+			if err == nil {
+				return hashid
+			}
+		}
+		return "Can't generate hashid"
 	})
 
 	m.Get("/:id", func(res http.ResponseWriter, req *http.Request, r render.Render, params martini.Params, us *urlshortener.UrlShortener) {
