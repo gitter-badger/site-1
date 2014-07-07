@@ -27,17 +27,21 @@ window.app = (function(window, document, undefined){
     },
 
     componentDidMount: function() {
-      var that = this;
+      var component = this;
       nwt.io("/api/links").success(function(event){
         if (event.obj instanceof Array) {
-          that.setState({
+          component.setState({
             items: event.obj
           });
         } else {
-          that.setState({
+          component.setState({
             items: false
           })
         }
+      }).failure(function(){
+        component.setState({
+          items: false
+        });
       }).get();
     },
 
