@@ -17,6 +17,7 @@ import (
 
 func main() {
 	mongoUrl := os.Getenv("MONGO_URL")
+	infoComment := "<!-- " + os.Getenv("GIT_REV") + " " + martini.Env + " -->"
 
 	if mongoUrl == "" {
 		panic(errors.New("Can not find environment variable MONGO_URL"))
@@ -43,7 +44,7 @@ func main() {
 	}))
 
 	m.Get("/", func(r render.Render) {
-		r.HTML(200, "main", map[string]interface{}{"env": template.HTML("<!-- " + martini.Env + " -->")})
+		r.HTML(200, "main", map[string]interface{}{"env": template.HTML(infoComment)})
 	})
 
 	m.Get("/api/links", func(l *links.LinksDAO) []byte {
