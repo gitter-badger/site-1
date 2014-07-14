@@ -1,6 +1,8 @@
 package urlshortener
 
 import (
+	"time"
+
 	"github.com/speps/go-hashids"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
@@ -35,23 +37,36 @@ func (us *UrlShortener) findUrlById(c *mgo.Collection, id string) (string, error
 		return "", nil
 	}
 
-	result := ShortenedUrl{}
-	err := c.Find(bson.M{"_id": ids[0]}).One(&result)
+	result, err := us.findByCriteria(c, bson.M{"_id": ids[0]})
 	if err != nil {
-		return "", err
+		return "", nil
 	}
 
 	return result.Url, nil
 }
 
 func (us *UrlShortener) findUrlByAlias(c *mgo.Collection, alias string) (string, error) {
-	result := ShortenedUrl{}
-	err := c.Find(bson.M{"aliases": alias}).One(&result)
+	result, err := us.findByCriteria(c, bson.M{"aliases": alias})
 	if err != nil {
-		return "", err
+		return "", nil
 	}
 
 	return result.Url, nil
+}
+
+func (us *UrlShortener) findByCriteria(c *mgo.Collection, criteria bson.M) (ShortenedUrl, error) {
+	result := ShortenedUrl{}
+	change := mgo.Change{
+		Update:    bson.M{"$set": bson.M{"lastUsed": time.Now()}},
+		ReturnNew: true,
+	}
+
+	_, err := c.Find(criteria).Apply(change, &result)
+	if err != nil {
+		return result, err
+	}
+
+	return result, nil
 }
 
 func (us *UrlShortener) HashIdFor(id int) (string, error) {
