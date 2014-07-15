@@ -73,11 +73,9 @@ func (us *UrlShortener) HashIdFor(id int) (string, error) {
 	return us.hashid.Encrypt([]int{id})
 }
 
-func New(collection *mgo.Collection) UrlShortener {
+func New(collection *mgo.Collection) *UrlShortener {
 	h := hashids.New()
 	h.Salt = "txgruppi" // It is not a secret
 
-	us := UrlShortener{collection, h}
-
-	return us
+	return &UrlShortener{collection, h}
 }

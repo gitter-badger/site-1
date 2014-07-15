@@ -2,11 +2,12 @@ package links
 
 import (
 	"errors"
+
 	"labix.org/v2/mgo"
 )
 
-func NewDAO(collection *mgo.Collection) LinksDAO {
-	return LinksDAO{collection}
+func NewDAO(collection *mgo.Collection) *LinksDAO {
+	return &LinksDAO{collection}
 }
 
 type LinksDAO struct {
