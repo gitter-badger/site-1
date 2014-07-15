@@ -64,6 +64,7 @@ func registerNewRelic(m *martini.ClassicMartini) {
 	agent.HTTPTimer = metrics.NewTimer()
 	agent.CollectHTTPStat = true
 	agent.NewrelicName = "site_txgruppi_com"
+	agent.Verbose = true
 	agent.Run()
 
 	m.Use(func(c martini.Context) {
