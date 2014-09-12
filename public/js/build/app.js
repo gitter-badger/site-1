@@ -81,8 +81,8 @@ window.app = (function(window, document, undefined){
   var Footer = React.createClass({displayName: 'Footer',
     render: function() {
       return  React.DOM.p(null, 
-                React.DOM.a({href: "http://octohost.io/", title: "octohost"}, "octohost"), React.DOM.br(null), 
                 React.DOM.a({href: "http://martini.codegangsta.io/", title: "martini"}, "martini"), React.DOM.br(null), 
+                React.DOM.a({href: "http://octohost.io/", title: "octohost"}, "octohost"), React.DOM.br(null), 
                 React.DOM.a({href: "http://simpleicons.org/"}, "Simple Icons"), React.DOM.br(null), 
                 React.DOM.a({href: "http://subtlepatterns.com/"}, "Subtle Patterns")
               );

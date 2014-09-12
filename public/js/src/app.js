@@ -81,8 +81,8 @@ window.app = (function(window, document, undefined){
   var Footer = React.createClass({
     render: function() {
       return  <p>
-                <a href="http://octohost.io/" title="octohost">octohost</a><br/>
                 <a href="http://martini.codegangsta.io/" title="martini">martini</a><br/>
+                <a href="http://octohost.io/" title="octohost">octohost</a><br/>
                 <a href="http://simpleicons.org/">Simple Icons</a><br/>
                 <a href="http://subtlepatterns.com/">Subtle Patterns</a>
               </p>;
