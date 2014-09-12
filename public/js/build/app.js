@@ -5,10 +5,10 @@
 window.app = (function(window, document, undefined){
   var Page = React.createClass({displayName: 'Page',
     render: function() {
-      return  React.DOM.div( {id:"page"}, 
-                Title(null ),
-                Grid(null ),
-                Footer(null )
+      return  React.DOM.div({id: "page"}, 
+                Title(null), 
+                Grid(null), 
+                Footer(null)
               );
     }
   });
@@ -47,17 +47,17 @@ window.app = (function(window, document, undefined){
 
     render: function() {
       if (this.state.items === null) {
-        return  React.DOM.div( {id:"grid-loader", className:"csspinner double-up"});
+        return  React.DOM.div({id: "grid-loader", className: "csspinner double-up"});
       } else if (this.state.items === false || this.state.items.length === 0) {
-        return  React.DOM.div( {id:"grid-error"}, 
-                  React.DOM.p(null, "Sadly it was not possible to load this page. You can try again later."),
-                  React.DOM.p(null, "Feel free to contact me at ", React.DOM.a( {href:"mainto:txgruppi@gmail.com"}, "txgruppi@gmail.com"),".")
+        return  React.DOM.div({id: "grid-error"}, 
+                  React.DOM.p(null, "Sadly it was not possible to load this page. You can try again later."), 
+                  React.DOM.p(null, "Feel free to contact me at ", React.DOM.a({href: "mainto:txgruppi@gmail.com"}, "txgruppi@gmail.com"), ".")
                 );
       } else {
         var items = this.state.items.map(function(link){
-          return GridItem( {url:link.url, title:link.title, image:link.image} )
+          return GridItem({url: link.url, title: link.title, image: link.image})
         });
-        return React.DOM.ul( {id:"grid"}, items);
+        return React.DOM.ul({id: "grid"}, items);
       }
     }
   });
@@ -71,8 +71,8 @@ window.app = (function(window, document, undefined){
 
     render: function() {
       return  React.DOM.li(null, 
-                React.DOM.a( {href:this.props.url, title:this.props.title}, 
-                  React.DOM.img( {src:this.props.image, alt:this.props.title} )
+                React.DOM.a({href: this.props.url, title: this.props.title}, 
+                  React.DOM.img({src: this.props.image, alt: this.props.title})
                 )
               );
     }
@@ -81,12 +81,13 @@ window.app = (function(window, document, undefined){
   var Footer = React.createClass({displayName: 'Footer',
     render: function() {
       return  React.DOM.p(null, 
-                "Served by ", React.DOM.a( {href:"http://martini.codegangsta.io/", title:"martini"}, "martini"),React.DOM.br(null),
-                "(some) Icons by ", React.DOM.a( {href:"http://simpleicons.org/"}, "Simple Icons"),React.DOM.br(null),
-                "Background by ", React.DOM.a( {href:"http://subtlepatterns.com/"}, "Subtle Patterns")
+                React.DOM.a({href: "http://octohost.io/", title: "octohost"}, "octohost"), React.DOM.br(null), 
+                React.DOM.a({href: "http://martini.codegangsta.io/", title: "martini"}, "martini"), React.DOM.br(null), 
+                React.DOM.a({href: "http://simpleicons.org/"}, "Simple Icons"), React.DOM.br(null), 
+                React.DOM.a({href: "http://subtlepatterns.com/"}, "Subtle Patterns")
               );
     }
   });
 
-  window.pageView = React.renderComponent(Page(null ), document.getElementById("stage"));
+  window.pageView = React.renderComponent(Page(null), document.getElementById("stage"));
 })(window, document);

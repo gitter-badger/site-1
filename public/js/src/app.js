@@ -81,9 +81,10 @@ window.app = (function(window, document, undefined){
   var Footer = React.createClass({
     render: function() {
       return  <p>
-                Served by <a href="http://martini.codegangsta.io/" title="martini">martini</a><br/>
-                (some) Icons by <a href="http://simpleicons.org/">Simple Icons</a><br/>
-                Background by <a href="http://subtlepatterns.com/">Subtle Patterns</a>
+                <a href="http://octohost.io/" title="octohost">octohost</a><br/>
+                <a href="http://martini.codegangsta.io/" title="martini">martini</a><br/>
+                <a href="http://simpleicons.org/">Simple Icons</a><br/>
+                <a href="http://subtlepatterns.com/">Subtle Patterns</a>
               </p>;
     }
   });
