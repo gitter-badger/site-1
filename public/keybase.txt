@@ -1,0 +1,82 @@
+==================================================================                                                                                                           [42/737]
+https://keybase.io/txgruppi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://txgruppi.com
+  * I am txgruppi (https://keybase.io/txgruppi) on keybase.
+  * I have a public key with fingerprint 03CD 84B9 585B 3C43 C222  A242 36F5 005F CAF5 C057
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.2"
+        },
+        "key": {
+            "fingerprint": "03cd84b9585b3c43c222a24236f5005fcaf5c057",
+            "host": "keybase.io",
+            "key_id": "36F5005FCAF5C057",
+            "uid": "9ffd204bb0d768538c552eee7854e600",
+            "username": "txgruppi"
+        },
+        "merkle_root": {
+            "ctime": 1411660081,
+            "hash": "49012a36737b8e5688e78de844b5a0c2ff7f7145b33cc717141ede8b381f2e3363f92d2fd9d239fa98a6afd8b290f2277a00c12f1a9accad8f87c5b6e4060e4a",
+            "seqno": 61583
+        },
+        "service": {
+            "hostname": "txgruppi.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1411660307,
+    "expire_in": 157680000,
+    "prev": "f75787606e9c26fac9855e277baca906509345848e32696e2394e0460a2a22e3",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFdknlMFFccx5dFEQ0sCJZqiqiD4UjJdu5jQVKKIBQCVrZQjrrO8QaGY2fZGXAp
+R2us4hGbDW1KKglozVZJmwbFA7VbsbSIqG1sPaARidLWgkCElmhKxM6gTbTvr/fe
+7/P7vt/3937uQF+D0YecMdj6Z7rzfC6NcgbrWktoLcTJQg1kqYX4cgnYVX1nZysA
+ZIHKQA3HKsAsyavtsgDMpcrqZ0wcVA2ciiTbNQo2U2YUqo/TcT1ZlOzFwOlwSroW
+BGO8QOMcQ9AEh/E4xqMoyqI4ipEiAcOEyLMiwcMEpUmWyIr6wqvQvKZNErRbjEzV
++dTkpFQi+SlfNR9gRFFAYZzjYIEiaQKjeYJAAQAUTeCAhGEdVIDzmSXVVeyscjgk
+vd4K4CwrBzanLM+b5lVJRxAcQUgtj0a0ililREvCGRhBWYykMIqjAUHStKYuABrH
+OYKFeVQUKZFCcM0gxvMUom0RoIU5jEZEFGAYiYkMKqCiwAgoxogsQ7MkKwo0hzKw
+iKIUxcIwj6AiwjIsz7MCLdIUT3AkwGESBjirWVBApV2GLCRC0Fi9fnRWSzzQy9a7
+9j9zZl6u0HIcTlmVeblci5SoqsOie1ZrHDq5FXA25aunIjZOsgvanz3/qYiGvtgP
+DKbiIOBySE5gk3SC0LoNa0t/B1RrmiJFUDRFwiRgeJQUWZ6hCQJo7jiWZxmYJGAG
+wwkapwGGkgwJtFbgAMZJmNUGQmvTcy61OtliTVKRiu2sWuUEUP1uY/gCg4/R4LfQ
+qE+tYcni4P9GuV0Jmou/i0bHXg+rDdq4IXaxtTMnVg3YEpbQtmyg3xq1XM1tmCvI
+6PLmH2hsDlCEX5ccMCuxwedL09TeKgP94WRNw3D5iqXgrnNzZkfbvsdvWwf+eD19
+aKGfMeLBL8f77mcf3V1pst083Jw7c/P0tI/7wqOOd08XZJ/sOtRa6T77xuXfyews
+U5srqnrqzlxG5nR88KW08OyXPVEFy60DyRZXUdFZJPFh+C3fwO8j713b9Vp+RPrc
+1MSpwcksb5inxXPF/+t9XOHEjgb8x1PsaN2jg62h12e37DD5zY01krnbs2Vw4q1N
+VZ919yasfeVnMkUwhQ54Vh1b07ehLualdcF1Q+84Ro7MVk9Y7w3S33Sv/GHboeGx
+6UWfu0LlhJDmnPF6tOfN4A8e/uVt/Dv+05DJ9MSM9f7NxpAsNah2z6o7KDV9NDZy
+9mAs+GjFMXf5aLFypf1cRVNSyjZHn+eTqJQH76dsPXkjr3Xs/v7vwiN7flrvKRxi
+z5z/rZcvPFPW5dm/bunHG4d3Jvp6i6iWpi9yakwxT/yR268OdtyoW2ncnu7e7Bg2
+pXUVnIgcvbjHsWzRbGbgP74j49Etoz6eSHeAd5P3Vsi39oirhResnYMTf450RXd2
+d+wsnjl8+z1pDdLVM34Vi3I17KxMaspaUHd8766p/tJ2+rLrHDmQl591ba6ZiPny
+4pMjgVCi9Phf
+=YIU8
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/txgruppi
+
+==================================================================
