@@ -6,10 +6,9 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+	"runtime"
 	"strconv"
 	"time"
-
-	"log"
 
 	"labix.org/v2/mgo"
 
@@ -23,6 +22,8 @@ import (
 )
 
 func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+
 	mongoUrl := os.Getenv("MONGO_URL")
 
 	if mongoUrl == "" {
@@ -54,7 +55,6 @@ func main() {
 
 func registerNewRelic(m *martini.ClassicMartini) {
 	license := os.Getenv("NEW_RELIC_LICENSE")
-	log.Println(license)
 	if license == "" {
 		return
 	}
